@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PostavkiTovar09Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="D">
+    <Key>
+      <PropertyRef Name="Dnum" />
+    </Key>
+    <Property Name="Dnum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="STD" Relationship="Self.FK__STD__Dnum__5165187F" FromRole="D" ToRole="STD" />
+  </EntityType>
+  <EntityType Name="S">
+    <Key>
+      <PropertyRef Name="Snum" />
+    </Key>
+    <Property Name="Snum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="STD" Relationship="Self.FK__STD__Snum__4F7CD00D" FromRole="S" ToRole="STD" />
+  </EntityType>
+  <EntityType Name="STD">
+    <Key>
+      <PropertyRef Name="Snum" />
+      <PropertyRef Name="Tnum" />
+      <PropertyRef Name="Dnum" />
+    </Key>
+    <Property Name="Snum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tnum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dnum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Kolvo" Type="Int32" />
+    <Property Name="DatePost" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="D" Relationship="Self.FK__STD__Dnum__5165187F" FromRole="STD" ToRole="D" />
+    <NavigationProperty Name="S" Relationship="Self.FK__STD__Snum__4F7CD00D" FromRole="STD" ToRole="S" />
+    <NavigationProperty Name="T" Relationship="Self.FK__STD__Tnum__5070F446" FromRole="STD" ToRole="T" />
+  </EntityType>
+  <EntityType Name="STD_Temp">
+    <Key>
+      <PropertyRef Name="Snum" />
+      <PropertyRef Name="Tnum" />
+      <PropertyRef Name="Dnum" />
+    </Key>
+    <Property Name="Snum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tnum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dnum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Kolvo" Type="Int32" />
+    <Property Name="DatePost" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T">
+    <Key>
+      <PropertyRef Name="Tnum" />
+    </Key>
+    <Property Name="Tnum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="EdIzm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="STD" Relationship="Self.FK__STD__Tnum__5070F446" FromRole="T" ToRole="STD" />
+  </EntityType>
+  <EntityType Name="Tovar_Temp">
+    <Key>
+      <PropertyRef Name="Tnum" />
+    </Key>
+    <Property Name="Tnum" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="EdIzm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__STD__Dnum__5165187F">
+    <End Role="D" Type="Self.D" Multiplicity="1" />
+    <End Role="STD" Type="Self.STD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D">
+        <PropertyRef Name="Dnum" />
+      </Principal>
+      <Dependent Role="STD">
+        <PropertyRef Name="Dnum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STD__Snum__4F7CD00D">
+    <End Role="S" Type="Self.S" Multiplicity="1" />
+    <End Role="STD" Type="Self.STD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="S">
+        <PropertyRef Name="Snum" />
+      </Principal>
+      <Dependent Role="STD">
+        <PropertyRef Name="Snum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STD__Tnum__5070F446">
+    <End Role="T" Type="Self.T" Multiplicity="1" />
+    <End Role="STD" Type="Self.STD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T">
+        <PropertyRef Name="Tnum" />
+      </Principal>
+      <Dependent Role="STD">
+        <PropertyRef Name="Tnum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PostavkiTovarEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="D" EntityType="Self.D" />
+    <EntitySet Name="S" EntityType="Self.S" />
+    <EntitySet Name="STD" EntityType="Self.STD" />
+    <EntitySet Name="STD_Temp" EntityType="Self.STD_Temp" />
+    <EntitySet Name="T" EntityType="Self.T" />
+    <EntitySet Name="Tovar_Temp" EntityType="Self.Tovar_Temp" />
+    <AssociationSet Name="FK__STD__Dnum__5165187F" Association="Self.FK__STD__Dnum__5165187F">
+      <End Role="D" EntitySet="D" />
+      <End Role="STD" EntitySet="STD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STD__Snum__4F7CD00D" Association="Self.FK__STD__Snum__4F7CD00D">
+      <End Role="S" EntitySet="S" />
+      <End Role="STD" EntitySet="STD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STD__Tnum__5070F446" Association="Self.FK__STD__Tnum__5070F446">
+      <End Role="T" EntitySet="T" />
+      <End Role="STD" EntitySet="STD" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

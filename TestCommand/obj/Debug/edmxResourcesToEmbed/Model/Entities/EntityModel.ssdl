@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PostavkiTovar09Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="D">
+    <Key>
+      <PropertyRef Name="Dnum" />
+    </Key>
+    <Property Name="Dnum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Dname" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="S">
+    <Key>
+      <PropertyRef Name="Snum" />
+    </Key>
+    <Property Name="Snum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Sname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="STD">
+    <Key>
+      <PropertyRef Name="Snum" />
+      <PropertyRef Name="Tnum" />
+      <PropertyRef Name="Dnum" />
+    </Key>
+    <Property Name="Snum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Tnum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Dnum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Kolvo" Type="int" />
+    <Property Name="DatePost" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="STD_Temp">
+    <Key>
+      <PropertyRef Name="Snum" />
+      <PropertyRef Name="Tnum" />
+      <PropertyRef Name="Dnum" />
+    </Key>
+    <Property Name="Snum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Tnum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Dnum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Kolvo" Type="int" />
+    <Property Name="DatePost" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="T">
+    <Key>
+      <PropertyRef Name="Tnum" />
+    </Key>
+    <Property Name="Tnum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Tname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="EdIzm" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tovar_Temp">
+    <Key>
+      <PropertyRef Name="Tnum" />
+    </Key>
+    <Property Name="Tnum" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Tname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="EdIzm" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__STD__Dnum__5165187F">
+    <End Role="D" Type="Self.D" Multiplicity="1" />
+    <End Role="STD" Type="Self.STD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D">
+        <PropertyRef Name="Dnum" />
+      </Principal>
+      <Dependent Role="STD">
+        <PropertyRef Name="Dnum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STD__Snum__4F7CD00D">
+    <End Role="S" Type="Self.S" Multiplicity="1" />
+    <End Role="STD" Type="Self.STD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="S">
+        <PropertyRef Name="Snum" />
+      </Principal>
+      <Dependent Role="STD">
+        <PropertyRef Name="Snum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STD__Tnum__5070F446">
+    <End Role="T" Type="Self.T" Multiplicity="1" />
+    <End Role="STD" Type="Self.STD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T">
+        <PropertyRef Name="Tnum" />
+      </Principal>
+      <Dependent Role="STD">
+        <PropertyRef Name="Tnum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище PostavkiTovar09ModelContainer">
+    <EntitySet Name="D" EntityType="Self.D" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S" EntityType="Self.S" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STD" EntityType="Self.STD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STD_Temp" EntityType="Self.STD_Temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T" EntityType="Self.T" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tovar_Temp" EntityType="Self.Tovar_Temp" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__STD__Dnum__5165187F" Association="Self.FK__STD__Dnum__5165187F">
+      <End Role="D" EntitySet="D" />
+      <End Role="STD" EntitySet="STD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STD__Snum__4F7CD00D" Association="Self.FK__STD__Snum__4F7CD00D">
+      <End Role="S" EntitySet="S" />
+      <End Role="STD" EntitySet="STD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STD__Tnum__5070F446" Association="Self.FK__STD__Tnum__5070F446">
+      <End Role="T" EntitySet="T" />
+      <End Role="STD" EntitySet="STD" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9f3874f008984a20b5dc18af9582cb81" Name="Diagram1">
+        <EntityTypeShape EntityType="PostavkiTovar09Model.D" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostavkiTovar09Model.S" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostavkiTovar09Model.STD" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostavkiTovar09Model.STD_Temp" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostavkiTovar09Model.T" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostavkiTovar09Model.Tovar_Temp" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="PostavkiTovar09Model.FK__STD__Dnum__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="PostavkiTovar09Model.FK__STD__Snum__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="PostavkiTovar09Model.FK__STD__Tnum__5070F446" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

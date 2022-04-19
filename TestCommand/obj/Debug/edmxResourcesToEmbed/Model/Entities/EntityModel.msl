@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище PostavkiTovar09ModelContainer" CdmEntityContainer="PostavkiTovarEntities">
+    <EntitySetMapping Name="D">
+      <EntityTypeMapping TypeName="PostavkiTovar09Model.D">
+        <MappingFragment StoreEntitySet="D">
+          <ScalarProperty Name="Dnum" ColumnName="Dnum" />
+          <ScalarProperty Name="Dname" ColumnName="Dname" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S">
+      <EntityTypeMapping TypeName="PostavkiTovar09Model.S">
+        <MappingFragment StoreEntitySet="S">
+          <ScalarProperty Name="Snum" ColumnName="Snum" />
+          <ScalarProperty Name="Sname" ColumnName="Sname" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STD">
+      <EntityTypeMapping TypeName="PostavkiTovar09Model.STD">
+        <MappingFragment StoreEntitySet="STD">
+          <ScalarProperty Name="Snum" ColumnName="Snum" />
+          <ScalarProperty Name="Tnum" ColumnName="Tnum" />
+          <ScalarProperty Name="Dnum" ColumnName="Dnum" />
+          <ScalarProperty Name="Kolvo" ColumnName="Kolvo" />
+          <ScalarProperty Name="DatePost" ColumnName="DatePost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STD_Temp">
+      <EntityTypeMapping TypeName="PostavkiTovar09Model.STD_Temp">
+        <MappingFragment StoreEntitySet="STD_Temp">
+          <ScalarProperty Name="Snum" ColumnName="Snum" />
+          <ScalarProperty Name="Tnum" ColumnName="Tnum" />
+          <ScalarProperty Name="Dnum" ColumnName="Dnum" />
+          <ScalarProperty Name="Kolvo" ColumnName="Kolvo" />
+          <ScalarProperty Name="DatePost" ColumnName="DatePost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T">
+      <EntityTypeMapping TypeName="PostavkiTovar09Model.T">
+        <MappingFragment StoreEntitySet="T">
+          <ScalarProperty Name="Tnum" ColumnName="Tnum" />
+          <ScalarProperty Name="Tname" ColumnName="Tname" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="EdIzm" ColumnName="EdIzm" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tovar_Temp">
+      <EntityTypeMapping TypeName="PostavkiTovar09Model.Tovar_Temp">
+        <MappingFragment StoreEntitySet="Tovar_Temp">
+          <ScalarProperty Name="Tnum" ColumnName="Tnum" />
+          <ScalarProperty Name="Tname" ColumnName="Tname" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="EdIzm" ColumnName="EdIzm" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
